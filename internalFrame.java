@@ -6,9 +6,13 @@ package com.mycompany.filemanager_cecs;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
+import java.io.File;
 import javax.swing.JInternalFrame;
 import javax.swing.JPanel;
+import javax.swing.JScrollPane;
 import javax.swing.JSplitPane;
+import javax.swing.JTree;
+import javax.swing.tree.DefaultMutableTreeNode;
 
 /**
  *
@@ -41,8 +45,10 @@ public class internalFrame extends JInternalFrame {
         
         // Set some content for the panels 
         //left
-        filePanel leftscrollpane = new filePanel();
+        JScrollPane leftscrollpane = createScrollPaneWithTree();
+      
         leftPanel.add(leftscrollpane,BorderLayout.CENTER);
+        
         leftPanel.setBackground(Color.WHITE);
         
         //right
@@ -59,6 +65,51 @@ public class internalFrame extends JInternalFrame {
 
         return splitPane;
     }
+
+    private JScrollPane createScrollPaneWithTree() {
+// Create the root node for the JTree
+    DefaultMutableTreeNode root = new DefaultMutableTreeNode("C:\\Users\\bapat\\OneDrive\\Desktop\\CSULB_Course\\Software Testing");
+
+    // Get the list of files and directories from the C drive
+    File[] roots = File.listRoots();
+
+    // Create nodes for each root (e.g., C:\, D:\, etc.)
+    for (File file : roots) {
+        DefaultMutableTreeNode driveNode = new DefaultMutableTreeNode(file.getAbsolutePath());
+        root.add(driveNode);
+
+        // Traverse the file system and add nodes for folders and files
+        buildTreeNodes(file, driveNode);
+    }
+
+    // Create the JTree with the root node
+    JTree tree = new JTree(root);
+
+    // Create the scroll pane with the JTree as its view
+    JScrollPane scrollPane = new JScrollPane(tree);
+
+    return scrollPane;
+}
+
+private void buildTreeNodes(File file, DefaultMutableTreeNode parent) {
+    if (file.isDirectory()) {
+        // Get all subdirectories and files in the current directory
+        File[] files = file.listFiles();
+
+        if (files != null) {
+            for (File child : files) {
+                // Create a new node for the directory/file and add it to the parent node
+                DefaultMutableTreeNode node = new DefaultMutableTreeNode(child.getName());
+                parent.add(node);
+
+                // If the child is a directory, recursively build its nodes
+                if (child.isDirectory()) {
+                    buildTreeNodes(child, node);
+                }
+            }
+        }
+    }
+}
 
 
 
