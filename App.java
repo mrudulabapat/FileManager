@@ -7,7 +7,7 @@ package com.mycompany.filemanager_cecs;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Dimension;
-import java.awt.MenuBar;
+import java.awt.FlowLayout;
 import javax.swing.BorderFactory;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
@@ -27,9 +27,11 @@ public class App extends JFrame {
     JMenu fileMenu, treeMenu, windowMenu, helpMenu;
     JMenuItem newItem, openItem;
     JToolBar toolBar;
+    JComboBox combobox;
     JButton detailBtn, simpleBtn;
     JLabel statusBar;
     JDesktopPane desktopPane;
+    JFrame f;
     
     public App(){
         
@@ -102,22 +104,23 @@ public class App extends JFrame {
     }
 
     private void createToolBar() {
-        toolBar = new JToolBar();
-        JComboBox<String> combobox = new JComboBox<>();
-        combobox.addItem("Option 1");
-        combobox.addItem("Option 2");
-        combobox.addItem("Option 3");
-        combobox.addItem("Option 4");
-        
+       toolBar = new JToolBar();
+        JPanel panel = new JPanel(new FlowLayout(FlowLayout.CENTER, 3, 0)); // Use FlowLayout
+        JComboBox<String> comboBox = new JComboBox<>();
+        comboBox.addItem("Option 1");
+        comboBox.addItem("Option 2");
+        comboBox.addItem("Option 3");
+        comboBox.addItem("Option 4");
 
-        toolBar.add(combobox);
+        Dimension comboBoxSize = new Dimension(150, comboBox.getPreferredSize().height); // Adjust the width as desired
+        comboBox.setPreferredSize(comboBoxSize);
+
+        panel.add(comboBox); // Add the JComboBox to the panel
+        panel.add(new JButton("Detail"));
+        panel.add(new JButton("Simple"));
+
+        toolBar.add(panel); // Add the panel to the JToolBar
         
-        detailBtn =  new JButton("Detail");
-        toolBar.add(detailBtn);
-        
-        simpleBtn =  new JButton("Simple");
-        toolBar.add(simpleBtn);
-     
         
     }
 
@@ -128,3 +131,5 @@ public class App extends JFrame {
 
 
 }
+
+   
