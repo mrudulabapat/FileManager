@@ -5,9 +5,9 @@
 package com.mycompany.filemanager_cecs;
 
 import java.awt.BorderLayout;
+import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.MenuBar;
-import java.util.HashSet;
 import javax.swing.BorderFactory;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
@@ -19,7 +19,7 @@ import javax.swing.JPanel;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 import javax.swing.JToolBar;
-//import filePanel;
+
 
 public class App extends JFrame {
     JPanel panel, topPanel;
@@ -27,7 +27,6 @@ public class App extends JFrame {
     JMenu fileMenu, treeMenu, windowMenu, helpMenu;
     JMenuItem newItem, openItem;
     JToolBar toolBar;
-    JComboBox combobox;
     JButton detailBtn, simpleBtn;
     JLabel statusBar;
     JDesktopPane desktopPane;
@@ -50,22 +49,33 @@ public class App extends JFrame {
         createMenuBar();
         topPanel.add(menuBar,BorderLayout.NORTH);
         panel.add(topPanel,BorderLayout.NORTH);
-        panel.add(desktopPane, BorderLayout.CENTER);
+        
+  
         
         this.add(panel);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         createToolBar();
         topPanel.add(toolBar, BorderLayout.SOUTH);
         topPanel.setSize(1000,100);
-     
+        
+        // Add the desktop pane
+        panel.add(desktopPane, BorderLayout.CENTER);
+            
+        
+        // Create an internal frame and add it to the desktop pane
+        internalFrame myinternalframe = new internalFrame();
+        desktopPane.add(myinternalframe);
+        myinternalframe.setVisible(true);
+        
         addStatusBar();
         this.add(statusBar, BorderLayout.SOUTH);
         
         this.setVisible(true);
-        this.setSize(1000,700);
+        this.setSize(1000,650);
       
        
     }
+    
     
     public void createMenuBar(){
 
@@ -99,10 +109,7 @@ public class App extends JFrame {
         combobox.addItem("Option 3");
         combobox.addItem("Option 4");
         
-        setPreferredSize(new Dimension(200, 30));
-        Dimension preferredSize = combobox.getPreferredSize(); 
-        preferredSize.height = 10; combobox.setPreferredSize(preferredSize);
-        
+
         toolBar.add(combobox);
         
         detailBtn =  new JButton("Detail");
