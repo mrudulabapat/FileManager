@@ -2,6 +2,8 @@
 
 This project showcases a lite version of the classic Microsoft file manager, recreated using Java Swing. The application utilizes Java Swing's powerful components to create an intuitive split-panel interface, enhancing the user experience for file navigation and management. 
 
+---
+
 The main features of the project include:  
 
   **Split-Panel Interface**  
@@ -20,15 +22,12 @@ The main features of the project include:
   copy, delete and the rename the files as well. 
   
   ---
- **Getting Started**
+ **Getting Started**  
+ 
   To run the lite file manager on your local machine, follow these steps:
-  
   **Clone the repository**  
-  
   **Navigate to the project directory**: cd FileManager  
-  
   **Compile the Java source code**: javac FileManager.java  
-  
   **Run the application**: java FileManager  
   
   
