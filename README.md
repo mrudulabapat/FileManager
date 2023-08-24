@@ -33,6 +33,9 @@ The main features of the project include:
   **Clone the repository**  
   **Navigate to the project directory**: cd FileManager  
   **Compile the Java source code**: javac FileManager.java  
-  **Run the application**: java FileManager  
-  
-  
+  **Run the application**: java FileManager    
+
+  **Screenshot**
+
+  ---
+![FileManager](https://github.com/mrudulabapat/FileManager/assets/128430331/8b0f996d-1886-4a0d-9ea3-72aee1a2f1f2)
