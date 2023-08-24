@@ -14,7 +14,8 @@ The main features of the project include:
   expand and collapse directories as needed. This dynamic expansion mechanism offers a seamless navigation experience and improves the overall usability of the 
   application.  
   
-  **Seamless Multi-Window Support**
+  **Seamless Multi-Window Support**  
+  
   One of the highlights of the lite file manager is its ability to support multiple windows from multiple drives seamlessly. Users can open the files and also can  
   copy, delete and the rename the files as well. 
   
