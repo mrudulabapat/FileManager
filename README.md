@@ -16,13 +16,17 @@ The main features of the project include:
   
   **Seamless Multi-Window Support**
   One of the highlights of the lite file manager is its ability to support multiple windows from multiple drives seamlessly. Users can open the files and also can  
-  copy, delete and the rename the files as well.  
-
+  copy, delete and the rename the files as well. 
+  ---
  **Getting Started**
   To run the lite file manager on your local machine, follow these steps:
-
-  **Clone the repository**
-  **Navigate to the project directory**: cd FileManager
-  **Compile the Java source code**: javac FileManager.java
-  **Run the application**: java FileManager
+  
+  **Clone the repository**  
+  
+  **Navigate to the project directory**: cd FileManager  
+  
+  **Compile the Java source code**: javac FileManager.java  
+  
+  **Run the application**: java FileManager  
+  
   
